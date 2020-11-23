@@ -7,9 +7,11 @@
 
 @Transactional(readOnly = true) All Settings
 
+
 Omit this
 @Transactional
     public Long order(Long memberId, Long itemId, int count)
+
 
 
 
