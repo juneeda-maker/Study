@@ -23,6 +23,7 @@ public class OrderService {
     /*
     Order
      */
+    @Transactional
     public Long order(Long memberId, Long itemId, int count) {
 
         //Lookup entity
