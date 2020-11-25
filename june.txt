@@ -1,1 +1,4 @@
-new
+20.11.23(Mon)
+-회원가입시 필요사항 추가
+-Member.java 의 id 를 number로 변경
+-회원가입 양식 작성에서 비밀번호 불일치시 에러 발생시키는 validatePwdMember 메소드 작성
