@@ -1,10 +1,13 @@
 package hellospring.JPA1.service;
 
+import hellospring.JPA1.domain.Member;
 import hellospring.JPA1.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @SpringBootTest
 @Transactional
@@ -16,7 +19,9 @@ class MemberServiceTest {
     @Autowired
     MemberRepository memberRepository;
 
-    @Test
+
+
+   /* @Test
     public void join() throws Exception {
         //given
         Member member = new Member();
@@ -28,7 +33,7 @@ class MemberServiceTest {
         //then
         assertEquals(member, memberRepository.findOne(saveId));
     }
-
+/*
     @Test
     public void duplicateMemberException() throws Exception {
 /*
@@ -47,4 +52,3 @@ class MemberServiceTest {
         fail("error should occur.");
 */
      }
-}

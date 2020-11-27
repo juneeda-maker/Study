@@ -11,7 +11,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.net.http.HttpRequest;
 import java.util.List;
 
 @Controller
@@ -27,6 +29,25 @@ public class MemberController {
         return "members/loginMemberForm";
     }
 
+    @PostMapping("/members/login")
+    public String login(Model model, HttpServletRequest req) {
+        String id = req.getParameter("id");
+        String pwd = req.getParameter("pwd");
+
+        Member member = new Member();
+        member.setId(id);
+        member.setPwd(pwd);
+        boolean logo = memberService.logingo(member);
+
+        if (logo == true) {
+            System.out.println("로그인 성공!");
+        } else {
+            System.out.println("로그인 실패");
+            //return "members/loginMemberForm";
+        }
+
+        return "redirect:/";
+    }
 
 
 
@@ -69,3 +90,6 @@ public class MemberController {
         return "members/memberList";
     }
 }
+
+
+

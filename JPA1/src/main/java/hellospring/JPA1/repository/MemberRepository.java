@@ -17,8 +17,8 @@ public class MemberRepository {
         em.persist(member);
     }
 
-    public Member findOne(Long id) {
-        return em.find(Member.class, id);
+    public Member findOne(Long number) {
+        return em.find(Member.class, number);
     }
 
     public List<Member> findAll() {
@@ -29,6 +29,13 @@ public class MemberRepository {
     public List<Member> findByName(String name) {
         return em.createQuery("select m from Member m where m.name = :name", Member.class)
                 .setParameter("name", name)
+                .getResultList();
+    }
+
+    public List<Member> Login(String id, String pwd){
+        return em.createQuery("select m from Member m where m.id = :id and m.pwd = :pwd", Member.class)
+                .setParameter("id", id)
+                .setParameter("pwd", pwd)
                 .getResultList();
     }
 }
