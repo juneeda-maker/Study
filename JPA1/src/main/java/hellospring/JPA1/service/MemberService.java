@@ -63,6 +63,7 @@ public class MemberService {
     }
 
 
+    //멤버 존재 여부 확인
     public boolean logingo(Member member) {
 
         boolean check = false;
