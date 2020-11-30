@@ -26,7 +26,7 @@ public class MemberController {
 
 
 
-
+    //로그인 관련 기능
 
     @GetMapping("/members/login")
     public String loginForm(Model model){
@@ -57,6 +57,13 @@ public class MemberController {
         return "redirect:/";
     }
 
+    //로그아웃 관련 기능
+    @GetMapping("members/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("id");
+        System.out.print("@@@ logout success @@@@");
+        return "redirect:/";
+    }
 
 
 
