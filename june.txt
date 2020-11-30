@@ -18,3 +18,4 @@
 -Session 값은 회원이 존재할때 req.getParameter를 이용해 받아오는것과 존재 하지 않을시 null이 되도록 간단 설정
 -home.html(메인화면)에서 타임리프를 이용하여 Session 값에 따라 다른 메세지가 출력되도록 했다.
 -로그아웃 기능 (session.removeAttribute 이용) 
+-회원가입시 중복닉네임 검사 기능 추가 
