@@ -21,22 +21,28 @@ public class MemberService {
     //회원 가입
     @Transactional
     public Long join(Member member) {
-        validateDuplicateMember(member); //중복 회원 검
+        validateDuplicateMember(member); //중복 회원 검사
+        validateDuplicateName(member); //닉네임 중복 검사
         validatePwdMember(member);
         memberRepository.save(member);
         return member.getNumber();
     }
 
 
+    //아이디 중복검사
     private void validateDuplicateMember(Member member) {
-        List<Member> findMembers = memberRepository.findByName(member.getName());
+        List<Member> findMembers = memberRepository.findByName(member.getId());
         if (!findMembers.isEmpty()) {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
-            //test
-            //tt
-            //tt
-            //tt
-            //tt
+        }
+
+    }
+
+    //닉네임  중복검사
+    private void validateDuplicateName(Member member) {
+        List<Member> findMembers = memberRepository.findByName(member.getName());
+        if (!findMembers.isEmpty()) {
+            throw new IllegalStateException("이미 사용중인 이름 입니다.");
         }
 
     }
