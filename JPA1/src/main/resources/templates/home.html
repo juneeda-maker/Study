@@ -6,9 +6,20 @@
 </head>
 <body>
 <div class="container">
+    <!-- 로그인 상태에 따른 메세지 출력 부분 -->
+    <div style="float: right;">
+        <div th:if="${session.id}">
+            안녕하세요
+            <span th:text="${session.id}"></span>
+            님!
+        </div>
+        <div th:unless="${session.id}">로그인을 해주세요!</div>
+    </div>
 
     <div th:replace="fragments/bodyHeader :: bodyHeader" />
     <div class="jumbotron">
+
+
         <h1>HELLO SHOP</h1>
 
         <p class="lead">회원 기능</p>

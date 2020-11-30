@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.net.http.HttpRequest;
 import java.util.List;
@@ -23,6 +25,9 @@ public class MemberController {
     private final MemberService memberService;
 
 
+
+
+
     @GetMapping("/members/login")
     public String loginForm(Model model){
         model.addAttribute("loginForm", new LoginForm());
@@ -30,7 +35,7 @@ public class MemberController {
     }
 
     @PostMapping("/members/login")
-    public String login(Model model, HttpServletRequest req) {
+    public String login(Model model, HttpServletRequest req, HttpSession session) {
         String id = req.getParameter("id");
         String pwd = req.getParameter("pwd");
 
@@ -41,10 +46,13 @@ public class MemberController {
 
         if (logo == true) {
             System.out.println("로그인 성공!");
+            session.setAttribute("id", id);
+
         } else {
             System.out.println("로그인 실패");
-            //return "members/loginMemberForm";
+            session.setAttribute("id", null);
         }
+
 
         return "redirect:/";
     }
