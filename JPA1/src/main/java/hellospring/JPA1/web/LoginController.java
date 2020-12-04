@@ -2,30 +2,45 @@ package hellospring.JPA1.web;
 
 import hellospring.JPA1.config.LoginRepository;
 import hellospring.JPA1.domain.Member;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
+@AllArgsConstructor
 public class LoginController {
 
-    private LoginRepository login;
+    private final LoginRepository loginRepository;
 
-    public LoginController(LoginRepository login){
-        this.login = login;
-    }
+
+
+   // @GetMapping("/")
+   // public String index(){
+    //    return "/home";
+    //}
+
 
     //로그인 관련 기능
 
     @GetMapping("/members/login")
-    public String loginForm(Model model){
-        model.addAttribute("loginForm", new LoginForm());
+    public String loginForm(){
+
         return "members/loginMemberForm";
     }
 
+
+
+
+
+
+
+
+    /*
     @PostMapping("/members/login")
     public String login(String id, String pwd){
 
@@ -36,6 +51,8 @@ public class LoginController {
         }
         return "members/loginFail";
     }
+    */
+
 
     /*
     @PostMapping("/members/login")

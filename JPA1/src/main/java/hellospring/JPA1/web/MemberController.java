@@ -3,6 +3,7 @@ package hellospring.JPA1.web;
 
 import hellospring.JPA1.domain.Address;
 import hellospring.JPA1.domain.Member;
+import hellospring.JPA1.dto.MemberDto;
 import hellospring.JPA1.repository.MemberRepository;
 import hellospring.JPA1.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -20,11 +21,20 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberController {
 
-    private  MemberService memberService;
+    private final MemberService memberService;
 
 
+   // @GetMapping("/")
+   // public String index(){
+    //    return "/home";
+   // }
 
+    /*@GetMapping("/")
+    public String index(){
+        return "/home";
+    }
 
+*/
 
     //로그인 관련 기능
     /*
@@ -89,6 +99,7 @@ public class MemberController {
         return "members/createMemberForm";
     }
 
+
     @PostMapping("/members/new")
     public String create(@Valid MemberForm form, BindingResult result){
         //@vaild 유효성 검사를 위한 어노테이션.
@@ -110,8 +121,12 @@ public class MemberController {
         member.setAddress(address);
 
         memberService.join(member);
+        System.out.println("++++++++++++++++++++++++++");
         return "redirect:/";
     }
+
+
+
 
     @GetMapping("/members")
     public String list(Model model){
