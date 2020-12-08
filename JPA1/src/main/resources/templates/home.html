@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header :: header">
     <title>Hello</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -8,12 +8,13 @@
 <div class="container">
     <!-- 로그인 상태에 따른 메세지 출력 부분 -->
     <div style="float: right;">
-        <div th:if="${session.id}">
-            안녕하세요
-            <span th:text="${session.id}"></span>
+
+        <div sec:authorize="isAuthenticated()">
+            환영합니다
+            <span sec:authentication="name"></span>
             님!
         </div>
-        <div th:unless="${session.id}">로그인을 해주세요!</div>
+        <div sec:authorize="!isAuthenticated()">로그인을 해주세요!</div>
     </div>
 
     <div th:replace="fragments/bodyHeader :: bodyHeader" />

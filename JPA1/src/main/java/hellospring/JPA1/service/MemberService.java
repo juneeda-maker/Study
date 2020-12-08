@@ -1,21 +1,41 @@
 package hellospring.JPA1.service;
 
 
+import hellospring.JPA1.config.LoginRepository;
 import hellospring.JPA1.domain.Member;
+import hellospring.JPA1.domain.Role;
+import hellospring.JPA1.dto.MemberDto;
 import hellospring.JPA1.repository.MemberRepository;
+import hellospring.JPA1.web.MemberForm;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
-public class MemberService {
+public class MemberService implements UserDetailsService {
 
 
     private final MemberRepository memberRepository;
+    private final LoginRepository loginRepository;
+
+
+
+
 
 
     //회원 가입
@@ -87,5 +107,26 @@ public class MemberService {
 
         return check;
     }
+
+    @Override
+    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+        Optional<Member> memberWrapper = loginRepository.findById(id);
+        Member member = memberWrapper.get();
+
+        List<GrantedAuthority> authorities = new ArrayList<>();
+
+        if("admin".equals(id)){
+            authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
+        }else{
+            authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
+        }
+
+        return new User(member.getId(), member.getPwd(), authorities);
+    }
+
+
+
+
+
 
 }
