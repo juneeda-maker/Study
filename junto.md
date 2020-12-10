@@ -2,7 +2,8 @@
 
 ## 20.12.11(Fri)
 ### 💌오늘 한 일 목록
-- 
+- assertThat 숙달 (List의 크기, 첫 번째 항목 이름은 무엇이다. 나이는 무엇이다 등 테스트)
+- 롬복 어노테이션 정리 (Getter, Setter, NoArgsConstructor, AllArgsConstructor, RequiredArgsConstructor, ToString, EqualsAndHashCode, @data + 문제점)
 
 ## 20.12.10(Thu)
 ### 💌오늘 할 일 목록(어제 안 했던 것 하자!)
