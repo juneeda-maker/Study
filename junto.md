@@ -1,4 +1,12 @@
 # Study
+## 20.12.15(Tue)
+### 💌오늘 한 일 목록
+- @OneToOne으로 매핑되어 있을 경우 Stream 사용법의 사소한 변화 익히기
+- JPA cascade 사용법 정리
+  - PERSIST, MERGE, REMOVE, ALL
+- orphanRemoval로 entitiy relation 사라질 때 해당 entity 삭제하기
+- slf4j, optional 아주 간단하게 사용
+
 ## 20.12.14(Mon)
 ### 💌오늘 한 일 목록
 - Jpa 따라치기
