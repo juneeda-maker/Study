@@ -1,4 +1,9 @@
 # Study
+## 20.12.17(Thu)
+### 💌오늘 한 일 목록
+- @GetMapping @PathVariable @PostMapping @RequestBody @PutMapping @PatchMapping @DeleteMapping @Where: JPA 간단히 연습.
+- 여러가지 테스트 케이스 작성. 익숙해지게 많이 연습하자!
+
 ## 20.12.16(Wed)
 ### 💌오늘 한 일 목록
 - JPA Query Method 연습. 
