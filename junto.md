@@ -1,4 +1,9 @@
 # Study
+## 20.12.18(Fri)
+### 💌오늘 한 일 목록
+- Mock, Exception Handler, parameter validator, pageable 빠르게 살펴봤음.
+- 앞으로는 한 동안 얕게 습득했던 지식들을 코드로 반복해서 작성해서 하나씩 내 것으로 만들어보겠음. 
+
 ## 20.12.17(Thu)
 ### 💌오늘 한 일 목록
 - @GetMapping @PathVariable @PostMapping @RequestBody @PutMapping @PatchMapping @DeleteMapping @Where: JPA 간단히 연습.
