@@ -1,4 +1,8 @@
 # Study
+## 20.12.19(Sat)
+- Spring 입문강의 따라치기
+- Spring 지인정보관리 강의 따라치기 (2/35)
+
 ## 20.12.18(Fri)
 ### 💌오늘 한 일 목록
 - Mock, Exception Handler, parameter validator, pageable 빠르게 살펴봤음.
